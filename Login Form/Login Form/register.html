@@ -1,0 +1,60 @@
+<html>
+
+<head>
+  <title>Firebase Sign up</title>
+  <meta charset="utf-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="login-form" id="login_div">
+        <h1>Sign up</h1>
+
+        <div class="txtb">
+          <input type="text" id="email_field">
+          <span data-placeholder="Username" ></span>
+        </div>
+
+        <div class="txtb">
+          <input type="password" id="password_field">
+          <span data-placeholder="Password" ></span>
+        </div>
+
+        <!-- <input type="submit" class="logbtn" value="Login"> -->
+        <button class="logbtn" onclick="login_Signup()">創建帳號</button>
+
+        <div class="bottom-text">
+          已有帳號? <a href="./index.html">登入</a>
+        </div>
+      </div>
+
+      <div class="login-form" id="user_div">
+        <h1>創建帳號成功!</h1>
+        <div class="txtb" id="user_para"></div>
+        <div class="txtb" id="showbox"></div>
+        <button class="logbtn" onclick="logout()">Logout</button><br>
+        <button class="logbtn" onclick="javascript:location.href='index.html'">回首頁</button>
+      </div>
+
+
+
+  <script type="text/javascript">
+      $(".txtb input").on("focus",function(){
+        $(this).addClass("focus");
+      });
+
+      $(".txtb input").on("blur",function(){
+        if($(this).val() == "")
+        $(this).removeClass("focus");
+      });
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-firestore.js"></script>
+  <script src="./js/firebase.js"></script>
+  <script src="./js/index.js"></script>
+
+</body>
+
+</html>

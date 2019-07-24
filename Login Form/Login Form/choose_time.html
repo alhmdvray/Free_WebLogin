@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+      <div class="login-form" id="out_div">
+        <h1>尚未登入!</h1>
+        <button class="logbtn" onclick="javascript:location.href='index.html'">返回首頁</button>
+      </div>
+
+      <div class="login-form" id="user_div">
+        <h1>選擇打卡時段</h1>
+        <button class="logbtn" onclick="PunchCard()" id="PunchCard">上班打卡</button><br>
+        <button class="logbtn" onclick="PunchAfter()" id="PunchAfter">下班打卡</button><br>
+        <button class="logbtn" onclick="javascript:location.href='check.html'">今日打卡紀錄</button><br>
+
+        <button class="logbtn" onclick="logout()">Logout</button>
+      </div>
+
+      <div class="login-form" id="Card_div">
+        <h1>打卡成功</h1>
+
+        <div class="txtb" id="user_para"></div>
+
+        <div class="txtb" id="showbox"></div>
+
+        <button class="logbtn" onclick="userback()">返回</button>
+      </div>
+
+
+      <script type="text/javascript">
+      $(".txtb input").on("focus",function(){
+        $(this).addClass("focus");
+      });
+
+      $(".txtb input").on("blur",function(){
+        if($(this).val() == "")
+        $(this).removeClass("focus");
+      });
+      </script>
+      <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+      <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+      <!-- Add Firebase products that you want to use -->
+      <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-firestore.js"></script>
+      <script src="./js/firebase.js"></script>
+      <script src="./js/choose_time.js"></script>
+
+  </body>
+</html>
