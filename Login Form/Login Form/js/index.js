@@ -41,6 +41,29 @@ function login(){
 
 }
 
+function login_Signup() {console.log('sss');
+  var userEmail = document.getElementById("email_field").value;
+  var userPass = document.getElementById("password_field").value;
+
+  // firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+  //   // Handle Errors here.
+  //   var errorCode = error.code;
+  //   var errorMessage = error.message;
+
+  //   window.alert("Error : " + errorMessage);
+
+  //   // ...
+  // });
+  firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).catch(function (error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert(errorMessage);
+    // ...
+  });
+
+}
+
 // FB 登入
 function fb_login() {
 
